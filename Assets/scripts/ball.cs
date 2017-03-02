@@ -12,6 +12,14 @@ public class ball : MonoBehaviour {
 	
 
 	void Update () {
-	
+        if (transform.position.y < -3.5f) {
+            GetOut();
+      
+        } 
 	}
+
+    void GetOut()
+    {
+        Debug.Log("You are out");
+    }
 }
