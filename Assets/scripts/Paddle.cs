@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Paddle : MonoBehaviour {
 
-    RigidBody 2D rigidBody;
-    float speed = 5; 
+    Rigidbody2D rigidBody;
+   public float speed = 5; 
 
     // Use this for initialization
     void Start () {
