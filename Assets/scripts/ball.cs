@@ -5,14 +5,14 @@ public class ball : MonoBehaviour {
 
     public Vector2 startingVelocity = new Vector2(5, -20);
     private Vector3 startingPosition; 
-    public GameObject gameOver;
+    public GameObject gameOverSign;
+    public GameObject youWinSign;
 
     int lives = 3;
 
     void Start () {
         startingPosition = transform.position; 
         GetComponent<Rigidbody2D>().velocity = startingVelocity;
-   
 	}
 	
 
@@ -21,8 +21,7 @@ public class ball : MonoBehaviour {
             GetOut();
       
         }
-        if (Input.GetButtonDown("Jump"))
-        {
+        if (Input.GetButtonDown("Jump")) {
             GetComponent<Rigidbody2D>().velocity = startingVelocity;
         }
     }
@@ -44,6 +43,16 @@ public class ball : MonoBehaviour {
 
     void DoGameOver()
     {
-        gameOver.SetActive(true);
+        gameOverSign.SetActive(true);
+    }
+
+    public void YouBrokeABrick()
+    {
+        var bricksLeft = FindObjectsOfType<Brick>().Length;
+        if(bricksLeft == 0)
+        {
+            youWinSign.SetActive(true);
+        }
+
     }
 }
